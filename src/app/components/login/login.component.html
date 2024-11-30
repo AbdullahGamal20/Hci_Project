@@ -1,0 +1,76 @@
+<div class="login">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 left_part">
+        <div>
+          <h2>Welcome Our Future Leader !</h2>
+          <p class="my-3 fs-5 text-capitalize">
+            limitless learning with infinite possibilities
+          </p>
+          <div class="logoHolder">
+            <img src="logo.svg" alt="Logo" />
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="col-lg-6 right_part d-flex align-items-center justify-content-center"
+      >
+        <div class="form_holder">
+          <img src="logo.svg" alt="Logo" class="my-2" />
+          <p class="my-1 fs-5 text-body-secondary">
+            Please Login to Continue Access
+          </p>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="card flex justify-content-center">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email"
+                formControlName="phoneNum"
+              />
+              <div
+                *ngIf="
+                  loginForm.get('phoneNum')?.invalid &&
+                  loginForm.get('phoneNum')?.touched
+                "
+                class="text-danger"
+              >
+                Email is required.
+              </div>
+            </div>
+            <div class="card flex justify-content-center">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                formControlName="phoneNum"
+              />
+              <div
+                *ngIf="
+                  loginForm.get('phoneNum')?.invalid &&
+                  loginForm.get('phoneNum')?.touched
+                "
+                class="text-danger"
+              >
+                Password is required.
+              </div>
+            </div>
+            <div>
+              <button
+                class="btn w-25 text-white text-uppercase my-3 fs-5"
+                type="submit"
+                [disabled]="loginForm.invalid"
+                style="
+                  background: linear-gradient(90deg, #291f6c, #4b2f8c, #6c4baa);
+                "
+              >
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

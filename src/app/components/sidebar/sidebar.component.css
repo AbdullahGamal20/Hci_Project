@@ -1,0 +1,149 @@
+.sidebarMainContainer {
+  min-height: 100vh;
+  display: flex;
+  position: relative;
+  background-color: #f8f9fa;
+}
+
+.sidebar {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.sidebarLogo {
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  border-bottom: 1px solid #eeeeee;
+  gap: 10px;
+
+  img {
+    height: 30px;
+    width: 200px;
+  }
+}
+
+.sidebarMenu {
+  height: calc(100vh - 65px);
+
+  img {
+    height: 15px !important;
+    width: 15px !important;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px 2rem;
+    color: #302578;
+    font-weight: 600;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+    gap: 10px;
+
+    &:hover {
+      background-color: #c0c0c0;
+    }
+  }
+}
+
+.sidebarMenuLinks {
+  list-style: none;
+  padding: 0 0 1rem;
+  margin: 0;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.PatientsVisitsList {
+  list-style: none;
+  transition: all 0.4s ease-in-out;
+  padding-left: 2rem !important;
+}
+
+.header {
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding-inline: 3rem;
+  border-bottom: 1px solid #eeeeee;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: #302578;
+    font-weight: 600;
+  }
+
+  img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+}
+
+.active {
+  background-color: #ece2f8;
+  border-left: 3px solid #302578;
+  text-decoration: none;
+}
+
+.mainContainer {
+  padding: 2rem;
+  padding-right: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarLogoAndSidebarMenu {
+  display: none;
+  background-color: #fff;
+}
+
+.sidebarModule {
+  button {
+    height: 40px;
+    width: 40px;
+    border: 1px solid #302578;
+    background-color: transparent;
+  }
+}
+
+@media screen and (max-width: 879px) {
+  .mainContainer {
+    padding: 1rem;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .sidebarLogoAndSidebarMenu {
+    display: block;
+  }
+
+  .header {
+    justify-content: space-between;
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .header {
+    padding-right: 1rem;
+  }
+
+  .sidebarLogo {
+    padding: 0 0 0 1rem;
+  }
+
+  .sidebarMainContainer {
+    background-color: #ffffff;
+  }
+}
