@@ -1,0 +1,43 @@
+<div class="form-wrapper">
+    <h3>{{ formName }}</h3>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div *ngFor="let control of formFields" class="form-field">
+        <label [for]="control.name" class="form-label">{{ control.label }}</label>
+  
+        <!-- Input Field -->
+        <input
+          *ngIf="control.type === 'text'"
+          [id]="control.name"
+          [type]="control.type"
+          [formControlName]="control.name"
+          [placeholder]="control.placeholder"
+          class="form-input"
+        />
+  
+        <!-- Select Dropdown -->
+        <select
+          *ngIf="control.type === 'select'"
+          [id]="control.name"
+          [formControlName]="control.name"
+          class="form-input"
+        >
+          <option *ngFor="let option of control.options" [value]="option.value">
+            {{ option.label }}
+          </option>
+        </select>
+  
+        <!-- Text  area -->
+        <textarea
+          *ngIf="control.type === 'textarea'"
+          [id]="control.name"
+          [formControlName]="control.name"
+          [placeholder]="control.placeholder"
+          rows="4"
+          class="form-input"
+        ></textarea>
+      </div>
+  
+      <button type="submit" class="form-button">Submit</button>
+    </form>
+  </div>
+  
