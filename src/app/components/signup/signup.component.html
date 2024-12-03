@@ -1,123 +1,137 @@
 <div class="login">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-6 left_part">
-          <div>
-            <h2>Signup with us Now  !</h2>
-            <p class="my-3 fs-5 text-capitalize">
-              limitless learning with infinite possibilities
-            </p>
-            <div class="logoHolder">
-              <img src="logo.svg" alt="Logo" />
-            </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 left_part">
+        <div>
+          <h2>Signup with us Now !</h2>
+          <p class="my-3 fs-5 text-capitalize">
+            limitless learning with infinite possibilities
+          </p>
+          <div class="logoHolder">
+            <img src="logo.svg" alt="Logo" />
           </div>
         </div>
-  
-        <div
-          class="col-lg-6 right_part d-flex align-items-center justify-content-center"
-        >
-          <div class="form_holder">
-            <img src="logo.svg" alt="Logo" class="my-2" />
-            <p class="my-1 fs-5 text-body-secondary">
-              Please sign up to Continue Access
-            </p>
-            <form [formGroup]="SignupForm" (ngSubmit)="onSubmit()">
-              <!-- email  -->
-              <div class="card flex justify-content-center">
-                <input
-                  type="email"
-                  class="form-control"
-                  placeholder="Email"
-                  formControlName="phoneNum"
-                />
-                <div
-                  *ngIf="
-                  SignupForm.get('phoneNum')?.invalid &&
-                  SignupForm.get('phoneNum')?.touched
-                  "
-                  class="text-danger"
-                  style="height: 0.1rem; display: flex; align-items: center; justify-content: center;"
+      </div>
 
-                >
-                  Email is required.
-                </div>
-              </div>
-              <!-- user name  -->
-              <div class="card flex justify-content-center">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="username1"
-                  formControlName="phoneNum"
-                />
-                <div
-                  *ngIf="
+      <div
+        class="col-lg-6 right_part d-flex align-items-center justify-content-center"
+      >
+        <div class="form_holder">
+          <img src="logo.svg" alt="Logo" class="my-2" />
+          <p class="my-1 fs-5 text-body-secondary">Start Learning with us</p>
+          <form [formGroup]="SignupForm" (ngSubmit)="onSubmit()">
+            <!-- email  -->
+            <div class="card flex justify-content-center">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email"
+                formControlName="phoneNum"
+              />
+              <div
+                *ngIf="
                   SignupForm.get('phoneNum')?.invalid &&
                   SignupForm.get('phoneNum')?.touched
-                  "
-                  style="height: 0.1rem; display: flex; align-items: center; justify-content: center;"
+                "
+                class="text-danger"
+                style="
+                  height: 0.1rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                Email is required.
+              </div>
+            </div>
+            <!-- user name  -->
+            <div class="card flex justify-content-center">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="username"
+                formControlName="phoneNum"
+              />
+              <div
+                *ngIf="
+                  SignupForm.get('phoneNum')?.invalid &&
+                  SignupForm.get('phoneNum')?.touched
+                "
+                style="
+                  height: 0.1rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+                class="text-danger"
+              >
+                user name is required.
+              </div>
+            </div>
 
-                  class="text-danger"
-                >
-                  user name is required.
-                </div>
-              </div>
-
-              <!-- password -->
-              <div class="card flex justify-content-center">
-                <input
-                  type="password"
-                  class="form-control"
-                  placeholder="Password"
-                  formControlName="phoneNum"
-                />
-                <div
-                  *ngIf="
+            <!-- password -->
+            <div class="card flex justify-content-center">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                formControlName="phoneNum"
+              />
+              <div
+                *ngIf="
                   SignupForm.get('phoneNum')?.invalid &&
                   SignupForm.get('phoneNum')?.touched
-                  "
-                  class="text-danger"
-                  
-                  style="height: 0.1rem; display: flex; align-items: center; justify-content: center;"
-                >
-                  Password is required.
-                </div>
+                "
+                class="text-danger"
+                style="
+                  height: 0.1rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                Password is required.
               </div>
-              <!-- confirm password -->
-              <div class="card flex justify-content-center">
-                <input
-                  type="password"
-                  class="form-control"
-                  placeholder="confirm Password"
-                  formControlName="phoneNum"
-                />
-                <div
-                  *ngIf="
+            </div>
+            <!-- confirm password -->
+            <div class="card flex justify-content-center">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="confirm Password"
+                formControlName="phoneNum"
+              />
+              <div
+                *ngIf="
                   SignupForm.get('phoneNum')?.invalid &&
                   SignupForm.get('phoneNum')?.touched
-                  "
-                  class="text-danger"
-                  style="height: 0.1rem; display: flex; align-items: center; justify-content: center;"
-                >
-                  confirm Password is required.
-                </div>
+                "
+                class="text-danger"
+                style="
+                  height: 0.1rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                confirm Password is required.
               </div>
-              <div>
-                <button
-                  class="btn w-25 text-white text-uppercase my-3 fs-5"
-                  type="submit"
-                  [disabled]="SignupForm.invalid"
-                  style="
-                    background: linear-gradient(90deg, #291f6c, #4b2f8c, #6c4baa);
-                  "
-                >
-                  Sign up 
-                </button>
-              </div>
-            </form>
-          </div>
+            </div>
+            <div>
+              <button
+                class="btn w-25 text-white text-uppercase my-3 fs-5"
+                type="submit"
+                [disabled]="SignupForm.invalid"
+                style="
+                  background: linear-gradient(90deg, #291f6c, #4b2f8c, #6c4baa);
+                "
+              >
+                Sign up
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

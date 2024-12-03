@@ -1,0 +1,39 @@
+<app-form-builder
+  [formName]="'Course Enrollment'"
+  [formFields]="[
+    {
+      name: 'courseName',
+      label: 'Course Name ',
+      type: 'select',
+      options: [
+        { value: 'Angular', label: 'Angular' },
+        { value: 'React', label: 'React' },
+        { value: 'Vue', label: 'Vue' }
+      ],
+      placeholder: 'Enter Course Name'
+    },
+    {
+      name: 'studentName',
+      label: 'Student Name',
+      type: 'text',
+      placeholder: 'Enter Student Name'
+    },
+    {
+      name: 'id',
+      label: 'Student ID',
+      type: 'number',
+      placeholder: 'Enter Student ID'
+    },
+    {
+      name: 'department',
+      label: 'Student Department',
+      type: 'select',
+      options: [
+        { value: 'Computer Science', label: 'Computer Science' },
+        { value: 'Mathematics', label: 'Mathematics' },
+        { value: 'Physics', label: 'Physics' }
+      ],
+      placeholder: 'Enter Student Department'
+    }
+  ]"
+></app-form-builder>

@@ -1,0 +1,34 @@
+<app-form-builder
+  [formName]="'Course Creation Form'"
+  [formFields]="[
+    {
+      name: 'courseName',
+      label: 'Course Name',
+      type: 'text',
+      placeholder: 'Enter course name'
+    },
+    {
+      name: 'creditScore',
+      label: 'Credit ',
+      type: 'text',
+      placeholder: 'Enter Credit Score'
+    },
+    {
+      name: 'courseDepartment',
+      label: 'Course Department',
+      type: 'select',
+      options: [
+        { value: 'is', label: 'Information Systems' },
+        { value: 'cs', label: 'Computer Science' },
+        { value: 'csys', label: 'Computer Systems' },
+        { value: 'sc', label: 'Scientific Computing' }
+      ]
+    },
+    {
+      name: 'courseDescription',
+      label: 'Course Description',
+      type: 'textarea',
+      placeholder: 'Your Course Description...'
+    }
+  ]"
+></app-form-builder>
