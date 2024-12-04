@@ -8,7 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs/operators'; // Import `filter`
-
+import { MonitoringProgressComponent } from './components/monitoring-progress/monitoring-progress.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -21,6 +21,7 @@ import { filter } from 'rxjs/operators'; // Import `filter`
     ReactiveFormsModule,
     RouterOutlet,
     MainLayoutComponent,
+    MonitoringProgressComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'], // Corrected `styleUrls` syntax

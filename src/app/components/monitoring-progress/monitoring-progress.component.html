@@ -1,0 +1,20 @@
+<div class="monitoring-progress-wrapper">
+    <h3 class="table-title">Monitoring Progress</h3>
+    <table class="progress-table">
+      <thead>
+        <tr>
+          <th>Student Name</th>
+          <th>Subject Name</th>
+          <th>Progress</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of tableData">
+          <td>{{ row.studentName }}</td>
+          <td>{{ row.subjectName }}</td>
+          <td>{{ row.progress }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
