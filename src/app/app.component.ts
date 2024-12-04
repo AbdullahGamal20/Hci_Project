@@ -9,6 +9,7 @@ import { MainLayoutComponent } from './components/main-layout/main-layout.compon
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs/operators'; // Import `filter`
 import { MonitoringProgressComponent } from './components/monitoring-progress/monitoring-progress.component';
+import { AccessCourseMaterialsComponent } from './components/access-course-materials/access-course-materials.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -21,7 +22,8 @@ import { MonitoringProgressComponent } from './components/monitoring-progress/mo
     ReactiveFormsModule,
     RouterOutlet,
     MainLayoutComponent,
-    MonitoringProgressComponent
+    MonitoringProgressComponent,
+    AccessCourseMaterialsComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'], // Corrected `styleUrls` syntax

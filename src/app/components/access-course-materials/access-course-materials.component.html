@@ -1,0 +1,22 @@
+<div class="course-materials-wrapper">
+    <h3 class="table-title">Access to Course Materials</h3>
+    <table class="materials-table">
+      <thead>
+        <tr>
+          <th>Course Name</th>
+          <th>Instructor Name</th>
+          <th>Download</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let material of courseMaterials">
+          <td>{{ material.courseName }}</td>
+          <td>{{ material.instructorName }}</td>
+          <td>
+            <button class="download-button" (click)="downloadFile(material.fileUrl)">Download</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
