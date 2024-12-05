@@ -10,6 +10,10 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs/operators'; // Import `filter`
 import { MonitoringProgressComponent } from './components/monitoring-progress/monitoring-progress.component';
 import { AccessCourseMaterialsComponent } from './components/access-course-materials/access-course-materials.component';
+import { UserManagementComponent } from './components/user-management/user-management.component';
+
+
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -23,9 +27,11 @@ import { AccessCourseMaterialsComponent } from './components/access-course-mater
     RouterOutlet,
     MainLayoutComponent,
     MonitoringProgressComponent,
-    AccessCourseMaterialsComponent
+    AccessCourseMaterialsComponent,
+    UserManagementComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'], // Corrected `styleUrls` syntax
 })
+
 export class AppComponent {}
