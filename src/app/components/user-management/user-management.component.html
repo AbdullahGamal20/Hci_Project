@@ -1,67 +1,72 @@
 <div class="table-wrapper">
-    <h2>User Management</h2>
-  
-    <button class="btn btn-primary" (click)="openAddModal()">Add User</button>
-  
-    <table class="styled-table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Role</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of users">
-          <td>{{ user.id }}</td>
-          <td>{{ user.name }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.role }}</td>
-          <td>
-            <button class="btn btn-edit" (click)="openEditModal(user)">Edit</button>
-            <button class="btn btn-delete" (click)="deleteUser(user.id)">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <h2>User Management</h2>
+
+  <button class="btn btn-primary" (click)="openAddModal()">Add User</button>
+
+  <p-table [value]="users" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+      <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <button class="btn btn-edit" (click)="openEditModal(user)">
+            Edit
+          </button>
+          <p-button label="Delete" severity="danger" [outlined]="true" />
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<!-- Modal -->
+<div *ngIf="selectedUser" class="modal-overlay">
+  <div class="modal">
+    <h3>{{ isEditMode ? "Edit User" : "Add User" }}</h3>
+    <form (ngSubmit)="saveUser()">
+      <label for="name">Name</label>
+      <input
+        id="name"
+        type="text"
+        [(ngModel)]="selectedUser.name"
+        name="name"
+        required
+      />
+
+      <label for="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        [(ngModel)]="selectedUser.email"
+        name="email"
+        required
+      />
+
+      <label for="role">Role</label>
+      <select [(ngModel)]="selectedUser.role" name="role" required>
+        <option value="Instructor">Instructor</option>
+        <option value="User">User</option>
+      </select>
+
+      <button type="submit" class="btn btn-save">Save</button>
+      <button
+        type="button"
+        class="btn btn-cancel"
+        (click)="selectedUser = null"
+      >
+        Cancel
+      </button>
+    </form>
   </div>
-  
-  <!-- Modal -->
-  <div *ngIf="selectedUser" class="modal-overlay">
-    <div class="modal">
-      <h3>{{ isEditMode ? 'Edit User' : 'Add User' }}</h3>
-      <form (ngSubmit)="saveUser()">
-        <label for="name">Name</label>
-        <input
-          id="name"
-          type="text"
-          [(ngModel)]="selectedUser.name"
-          name="name"
-          required
-        />
-  
-        <label for="email">Email</label>
-        <input
-          id="email"
-          type="email"
-          [(ngModel)]="selectedUser.email"
-          name="email"
-          required
-        />
-  
-        <label for="role">Role</label>
-        <select [(ngModel)]="selectedUser.role" name="role" required>
-          <option value="Admin">Admin</option>
-          <option value="User">User</option>
-        </select>
-  
-        <button type="submit" class="btn btn-save">Save</button>
-        <button type="button" class="btn btn-cancel" (click)="selectedUser = null">
-          Cancel
-        </button>
-      </form>
-    </div>
-  </div>
-  
+</div>

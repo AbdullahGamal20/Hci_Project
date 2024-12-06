@@ -69,7 +69,8 @@ p {
 form div {
   margin: 30px 0;
 }
-input {
+input,
+.selection select {
   background: linear-gradient(360deg, #291f6c, #4b2f8c, #6c4baa);
   color: #fff !important;
   padding: 15px;
@@ -79,17 +80,12 @@ input {
 input::placeholder {
   color: #fff;
 }
-
 .selection select {
   width: 100%;
-  padding: 15px;
-  font-size: 16px;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  border-radius: 5px;
-  outline: none;
-  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+  option {
+    color: #777;
+  }
 }
 
 @keyframes slideUp {

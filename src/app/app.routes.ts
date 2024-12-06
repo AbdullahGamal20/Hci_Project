@@ -10,7 +10,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MonitoringProgressComponent } from './components/monitoring-progress/monitoring-progress.component';
 
 export const routes: Routes = [
-  // Public routes without sidebar
+  // Public routes
   {
     path: 'login',
     component: LoginComponent,
@@ -20,35 +20,24 @@ export const routes: Routes = [
     component: SignupComponent,
   },
 
-  // Protected routes with sidebar
+  // Protected routes
   {
     path: 'dashboard',
     component: SidebarComponent,
     children: [
-      {
-        path: 'course-enrollment',
-        component: CourseEnrollmentComponent,
-      },
-      {
-        path: 'grade-assessment',
-        component: GradeAssessmentComponent,
-      },
-      {
-        path: 'course-creation',
-        component: CourseCreationComponent,
-      },
-      {
-        path: 'access-materials',
-        component: AccessCourseMaterialsComponent,
-      },
-      {
-        path: 'user-management',
-        component: UserManagementComponent,
-      },
-      {
-        path: 'monitoring-progress',
-        component: MonitoringProgressComponent,
-      },
+      { path: '', redirectTo: 'course-enrollment', pathMatch: 'full' },
+      { path: 'course-enrollment', component: CourseEnrollmentComponent },
+      { path: 'grade-assessment', component: GradeAssessmentComponent },
+      { path: 'course-creation', component: CourseCreationComponent },
+      { path: 'access-materials', component: AccessCourseMaterialsComponent },
+      { path: 'user-management', component: UserManagementComponent },
+      { path: 'monitoring-progress', component: MonitoringProgressComponent },
+      { path: 'course-catalog', component: MonitoringProgressComponent }, // Added
+      { path: 'assignments', component: MonitoringProgressComponent }, // Added
+      { path: 'reports', component: MonitoringProgressComponent }, // Added
+      { path: 'analytics', component: MonitoringProgressComponent }, // Added
     ],
   },
+  // Fallback route
+  { path: '**', redirectTo: 'login' },
 ];

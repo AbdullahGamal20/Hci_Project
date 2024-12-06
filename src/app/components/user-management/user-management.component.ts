@@ -1,17 +1,24 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Import FormsModule for ngModel
+import { TableModule } from 'primeng/table';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @Component({
-  standalone:true ,
+  standalone: true,
   selector: 'app-user-management',
-  imports: [CommonModule, FormsModule], // Add FormsModule here
+  imports: [CommonModule, FormsModule, TableModule, ConfirmDialogModule], // Add FormsModule here
   templateUrl: './user-management.component.html',
   styleUrls: ['./user-management.component.css'],
 })
 export class UserManagementComponent {
   users = [
-    { id: 1, name: 'John Doe', email: 'john.doe@example.com', role: 'Admin' },
+    {
+      id: 1,
+      name: 'John Doe',
+      email: 'john.doe@example.com',
+      role: 'Instructor',
+    },
     { id: 2, name: 'John', email: 'John@example.com', role: 'User' },
   ];
 
@@ -30,7 +37,9 @@ export class UserManagementComponent {
 
   saveUser() {
     if (this.isEditMode) {
-      const index = this.users.findIndex((user) => user.id === this.selectedUser.id);
+      const index = this.users.findIndex(
+        (user) => user.id === this.selectedUser.id
+      );
       this.users[index] = this.selectedUser;
     } else {
       this.selectedUser.id = this.users.length + 1;
