@@ -1,109 +1,118 @@
 .login {
-    width: 100%;
-    height: 100vh;
-    position: relative;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.left_part {
+  width: 50%;
+  height: 100vh;
+  color: #fff;
+  background: linear-gradient(90deg, #291f6c, #4b2f8c, #6c4baa);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h2 {
+  font-size: 40px;
+  text-align: center;
+}
+
+p {
+  font-size: 20px;
+  text-align: center;
+}
+
+.left_part .logoHolder {
+  text-align: center;
+  background: #fff;
+  width: 60%;
+  padding: 20px;
+  margin: 0 auto;
+  border-radius: 10px;
+  position: relative;
+  animation: slideUp 3.5s ease-in-out forwards infinite;
+}
+
+.left_part::before,
+.left_part::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  filter: blur(50px);
+  z-index: 1;
+}
+
+.left_part::before {
+  top: 10%;
+  left: 10%;
+}
+
+.left_part::after {
+  top: 60%;
+  left: 20%;
+}
+
+.form_holder {
+  width: 600px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+form div {
+  margin: 30px 0;
+}
+input {
+  background: linear-gradient(360deg, #291f6c, #4b2f8c, #6c4baa);
+  color: #fff !important;
+  padding: 15px;
+  border: none;
+  font-size: 18px;
+}
+input::placeholder {
+  color: #fff;
+}
+
+.selection select {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes slideUp {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
+  50% {
+    transform: translateY(40px);
+    opacity: 0.8;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .left_part {
-    width: 50%;
+    display: none;
+  }
+
+  .right_part {
     height: 100vh;
-    color: #fff;
-    background: linear-gradient(90deg, #291f6c, #4b2f8c, #6c4baa);
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-    h2 {
-      font-size: 40px;
-      text-align: center;
-    }
-  
-    p {
-      font-size: 20px;
-      text-align: center;
-    }
-  
-  
-  .left_part .logoHolder {
-    text-align: center;
-    background: #fff;
-    width: 60%;
-    padding: 20px;
-    margin: 0 auto;
-    border-radius: 10px;
-    position: relative;
-    animation: slideUp 3.5s ease-in-out forwards infinite;
-  }
-  
-  .left_part::before,
-  .left_part::after {
-    content: "";
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    background: rgba(255, 255, 255, 0.25);
-    border-radius: 50%;
-    filter: blur(50px);
-    z-index: 1;
-  }
-  
-  .left_part::before {
-    top: 10%;
-    left: 10%;
-  }
-  
-  .left_part::after {
-    top: 60%;
-    left: 20%;
-  }
-  
-  .form_holder {
-    width: 600px;
-    height: 100%;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px;
-    border: 1px solid #eee;
-  }
-    form div{
-      margin: 30px 0;
-    }
-    input {
-      background: linear-gradient(360deg, #291f6c, #4b2f8c, #6c4baa);
-      color: #fff !important;
-      padding: 15px;
-      border: none;
-      font-size: 18px;
-    }
-    input::placeholder {
-      color: #fff;
-    }
-  
-  
-  @keyframes slideUp {
-    0%,
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    50% {
-      transform: translateY(40px);
-      opacity: 0.8;
-    }
-  }
-  
-  @media screen and (max-width: 768px) {
-    .left_part {
-      display: none;
-    }
-  
-    .right_part {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-  
+}

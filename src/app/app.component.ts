@@ -5,14 +5,11 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FormBuilderComponent } from './components/form-builder/form-builder.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs/operators'; // Import `filter`
 import { MonitoringProgressComponent } from './components/monitoring-progress/monitoring-progress.component';
 import { AccessCourseMaterialsComponent } from './components/access-course-materials/access-course-materials.component';
 import { UserManagementComponent } from './components/user-management/user-management.component';
-
-
 
 @Component({
   selector: 'app-root',
@@ -25,7 +22,6 @@ import { UserManagementComponent } from './components/user-management/user-manag
     FormBuilderComponent,
     ReactiveFormsModule,
     RouterOutlet,
-    MainLayoutComponent,
     MonitoringProgressComponent,
     AccessCourseMaterialsComponent,
     UserManagementComponent,
@@ -33,5 +29,4 @@ import { UserManagementComponent } from './components/user-management/user-manag
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'], // Corrected `styleUrls` syntax
 })
-
 export class AppComponent {}

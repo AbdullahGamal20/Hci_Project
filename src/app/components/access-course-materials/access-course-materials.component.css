@@ -1,71 +1,70 @@
 .course-materials-wrapper {
-    width: 100%;
-    max-width: 700px;
-    margin: 20px auto;
-    padding: 15px;
-    background: linear-gradient(145deg, #6a5acd, #7b68ee);
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .table-title {
-    color: #ffffff;
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .materials-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .materials-table thead {
-    background-color: #5a4dcf;
-    color: #fff;
-  }
-  
-  .materials-table th,
-  .materials-table td {
-    padding: 10px 15px;
-    text-align: left;
-    border: 1px solid #ddd;
-  }
-  
-  .materials-table tr:nth-child(even) {
-    background-color: #f4f4f4;
-  }
-  
-  .materials-table tr:nth-child(odd) {
-    background-color: #eaeaea;
-  }
-  
-  .materials-table tbody tr:hover {
-    background-color: #dcdcdc;
-  }
-  
-  .materials-table th {
-    font-weight: bold;
-    font-size: 1rem;
-    color : black ;
-  }
-  
-  .materials-table td {
-    font-size: 0.9rem;
-  }
-  
-  .download-button {
-    padding: 5px 10px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .download-button:hover {
-    background-color: #45a049;
-  }
-  
+  width: 100%;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 15px;
+  background: linear-gradient(145deg, #6a5acd, #7b68ee);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table-title {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.materials-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.materials-table thead {
+  background-color: #5a4dcf;
+  color: #fff;
+}
+
+.materials-table th,
+.materials-table td {
+  padding: 10px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.materials-table tr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+.materials-table tr:nth-child(odd) {
+  background-color: #eaeaea;
+}
+
+.materials-table tbody tr:hover {
+  background-color: #dcdcdc;
+}
+
+.materials-table th {
+  font-weight: bold;
+  font-size: 1rem;
+  color: black;
+}
+
+.materials-table td {
+  font-size: 0.9rem;
+}
+
+.download-button {
+  padding: 5px 10px;
+  background: linear-gradient(145deg, #6a5acd, #7b68ee);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+  background-color: #45a049;
+}
