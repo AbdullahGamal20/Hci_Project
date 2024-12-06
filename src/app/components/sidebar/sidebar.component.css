@@ -94,13 +94,6 @@
   text-decoration: none;
 }
 
-.mainContainer {
-  padding: 2rem;
-  padding-right: 5rem;
-  display: flex;
-  flex-direction: column;
-}
-
 .sidebarLogoAndSidebarMenu {
   display: none;
   background-color: #fff;

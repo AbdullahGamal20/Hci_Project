@@ -23,9 +23,8 @@ export const routes: Routes = [
   // Protected routes
   {
     path: 'dashboard',
-    component: SidebarComponent,
+    // component: SidebarComponent,
     children: [
-      { path: '', redirectTo: 'course-enrollment', pathMatch: 'full' },
       { path: 'course-enrollment', component: CourseEnrollmentComponent },
       { path: 'grade-assessment', component: GradeAssessmentComponent },
       { path: 'course-creation', component: CourseCreationComponent },
@@ -36,6 +35,9 @@ export const routes: Routes = [
       { path: 'assignments', component: MonitoringProgressComponent }, // Added
       { path: 'reports', component: MonitoringProgressComponent }, // Added
       { path: 'analytics', component: MonitoringProgressComponent }, // Added
+
+      { path: '', component: MonitoringProgressComponent, pathMatch: 'full' },
+
     ],
   },
   // Fallback route
