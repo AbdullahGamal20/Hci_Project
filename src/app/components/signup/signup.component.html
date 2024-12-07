@@ -16,113 +16,107 @@
       <div
         class="col-lg-6 right_part d-flex align-items-center justify-content-center"
       >
+        <p-toast></p-toast>
+
         <div class="form_holder">
           <img src="logo.svg" alt="Logo" class="my-2" />
           <p class="my-1 fs-5 text-body-secondary">Start Learning with us</p>
           <form [formGroup]="SignupForm" (ngSubmit)="onSubmit()">
-            <!-- email  -->
+            <!-- Email -->
             <div class="card flex justify-content-center">
               <input
                 type="email"
                 class="form-control"
                 placeholder="Email"
-                formControlName="phoneNum"
+                formControlName="email"
               />
               <div
                 *ngIf="
-                  SignupForm.get('phoneNum')?.invalid &&
-                  SignupForm.get('phoneNum')?.touched
+                  SignupForm.get('email')?.invalid &&
+                  SignupForm.get('email')?.touched
                 "
                 class="text-danger"
-                style="
-                  height: 0.1rem;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                "
               >
-                Email is required.
+                Valid email is required.
               </div>
             </div>
-            <!-- user name  -->
+
+            <!-- Username -->
             <div class="card flex justify-content-center">
               <input
                 type="text"
                 class="form-control"
-                placeholder="username"
-                formControlName="phoneNum"
+                placeholder="Username"
+                formControlName="username"
               />
               <div
                 *ngIf="
-                  SignupForm.get('phoneNum')?.invalid &&
-                  SignupForm.get('phoneNum')?.touched
-                "
-                style="
-                  height: 0.1rem;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
+                  SignupForm.get('username')?.invalid &&
+                  SignupForm.get('username')?.touched
                 "
                 class="text-danger"
               >
-                user name is required.
+                Username must be at least 3 characters long.
               </div>
             </div>
 
-            <!-- password -->
+            <!-- Password -->
             <div class="card flex justify-content-center">
               <input
                 type="password"
                 class="form-control"
                 placeholder="Password"
-                formControlName="phoneNum"
+                formControlName="password"
               />
               <div
                 *ngIf="
-                  SignupForm.get('phoneNum')?.invalid &&
-                  SignupForm.get('phoneNum')?.touched
+                  SignupForm.get('password')?.invalid &&
+                  SignupForm.get('password')?.touched
                 "
                 class="text-danger"
-                style="
-                  height: 0.1rem;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                "
               >
-                Password is required.
+                Password must be at least 6 characters long.
               </div>
             </div>
-            <!-- confirm password -->
+
+            <!-- Confirm Password -->
             <div class="card flex justify-content-center">
               <input
                 type="password"
                 class="form-control"
-                placeholder="confirm Password"
-                formControlName="phoneNum"
+                placeholder="Confirm Password"
+                formControlName="confirmPassword"
               />
               <div
                 *ngIf="
-                  SignupForm.get('phoneNum')?.invalid &&
-                  SignupForm.get('phoneNum')?.touched
+                  SignupForm.get('confirmPassword')?.value !==
+                  SignupForm.get('password')?.value
                 "
                 class="text-danger"
-                style="
-                  height: 0.1rem;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                "
               >
-                confirm Password is required.
+                Passwords do not match.
               </div>
             </div>
+
+            <!-- Role -->
             <div class="selection">
-              <select>
+              <select formControlName="role" class="form-control">
+                <option value="">Select Role</option>
                 <option value="instructor">Instructor</option>
                 <option value="student">Student</option>
               </select>
+              <div
+                *ngIf="
+                  SignupForm.get('role')?.invalid &&
+                  SignupForm.get('role')?.touched
+                "
+                class="text-danger"
+              >
+                Role is required.
+              </div>
             </div>
+
+            <!-- Submit Button -->
             <div>
               <button
                 class="btn w-25 text-white text-uppercase my-3 fs-5"

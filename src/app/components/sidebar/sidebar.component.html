@@ -94,30 +94,45 @@
             <p-sidebar [(visible)]="sidebarVisible">
               <div class="sidebarMenu">
                 <ul class="sidebarMenuLinks">
+                  <!-- Dashboard Page -->
                   <li>
-                    <a routerLink="/dashboard"
-                      ><i class="pi pi-home"></i
-                      ><span class="font-medium">Dashboard</span></a
-                    >
+                    <a routerLink="/dashboard">
+                      <i class="pi pi-home" style="font-size: 1rem"></i>
+                      <span class="font-medium">Dashboard</span>
+                    </a>
                   </li>
+
+                  <!-- Course Management Pages -->
                   <li>
-                    <a routerLink="/dashboard/course-catalog"
-                      ><i class="pi pi-bars"></i
-                      ><span class="font-medium">Course Catalog</span></a
-                    >
+                    <a routerLink="/dashboard/access-materials">
+                      <i class="pi pi-bars" style="font-size: 1rem"></i>
+                      <span class="font-medium">Access Materials</span>
+                    </a>
                   </li>
+
+                  <!-- Assignment Page -->
                   <li>
-                    <a routerLink="/dashboard/assignments"
-                      ><i class="pi pi-compass"></i
-                      ><span class="font-medium">Assignments</span></a
-                    >
+                    <a routerLink="/dashboard/submit-assignment">
+                      <i class="pi pi-compass" style="font-size: 1rem"></i>
+                      <span class="font-medium">Submit Assignment</span>
+                    </a>
                   </li>
+
                   <li>
-                    <a routerLink="/dashboard/course-creation"
-                      ><i class="pi pi-file-plus"></i
-                      ><span class="font-medium">Create Course</span></a
-                    >
+                    <a routerLink="/dashboard/track-progress">
+                      <i class="pi pi-chart-line" style="font-size: 1rem"></i>
+                      <span class="font-medium">Track Progress</span>
+                    </a>
                   </li>
+
+                  <li>
+                    <a routerLink="/dashboard/course-creation">
+                      <i class="pi pi-file-plus" style="font-size: 1rem"></i>
+                      <span class="font-medium">Create Course</span>
+                    </a>
+                  </li>
+
+                  <!-- Progress Tracking/Analytics Page -->
                   <li>
                     <a routerLink="/dashboard/grade-assessment">
                       <i
@@ -128,28 +143,34 @@
                     </a>
                   </li>
                   <li>
-                    <a routerLink="/dashboard/analytics"
-                      ><i class="pi pi-chart-line"></i
-                      ><span class="font-medium">Analytics Page</span></a
-                    >
+                    <a routerLink="/dashboard/monitor-progress">
+                      <i
+                        class="pi pi-graduation-cap"
+                        style="font-size: 1rem"
+                      ></i>
+                      <span class="font-medium">Monitor Progress </span>
+                    </a>
+                  </li>
+
+                  <!-- Bonus Pages -->
+
+                  <li>
+                    <a routerLink="/dashboard/user-management">
+                      <i class="pi pi-user-plus" style="font-size: 1rem"></i>
+                      <span class="font-medium">User Management</span>
+                    </a>
                   </li>
                   <li>
-                    <a routerLink="/dashboard/user-management"
-                      ><i class="pi pi-user-plus"></i
-                      ><span class="font-medium">User Management</span></a
-                    >
+                    <a routerLink="/dashboard/course-enrollment">
+                      <i class="pi pi-plus-circle" style="font-size: 1rem"></i>
+                      <span class="font-medium">Course Enrollment</span>
+                    </a>
                   </li>
                   <li>
-                    <a routerLink="/dashboard/course-enrollment"
-                      ><i class="pi pi-plus-circle"></i
-                      ><span class="font-medium">Course Enrollment</span></a
-                    >
-                  </li>
-                  <li>
-                    <a routerLink="/dashboard/reports"
-                      ><i class="pi pi-file-export"></i
-                      ><span class="font-medium">Reports</span></a
-                    >
+                    <a routerLink="/dashboard/course-management">
+                      <i class="pi pi-file-export" style="font-size: 1rem"></i>
+                      <span class="font-medium">Course Management</span>
+                    </a>
                   </li>
                 </ul>
 

@@ -1,33 +1,45 @@
 <div class="table-wrapper">
-  <h2>All courses</h2>
+  <h2>All Courses</h2>
 
   <div>
-    <p-table [value]="users" [tableStyle]="{ width: '1000px' }">
+    <p-table [value]="courses" [tableStyle]="{ width: '1000px' }">
       <ng-template pTemplate="header">
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Role</th>
-          <th>Actions</th>
+        <tr style="border: 1px solid #ddd">
+          <th class="text-center" style="border-left: 1px solid #ddd">Title</th>
+          <th class="text-center" style="border-left: 1px solid #ddd">
+            Description
+          </th>
+          <th class="text-center" style="border-left: 1px solid #ddd">
+            Instructor
+          </th>
+          <th class="text-center" style="border-left: 1px solid #ddd">
+            Actions
+          </th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-user>
-        <tr>
-          <td>{{ user.id }}</td>
-          <td>{{ user.name }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.role }}</td>
-          <td class="">
+
+      <ng-template pTemplate="body" let-course>
+        <tr style="border: 1px solid #ddd">
+          <td class="text-center" style="border-left: 1px solid #ddd">
+            {{ course.title }}
+          </td>
+          <td class="text-center" style="border-left: 1px solid #ddd">
+            {{ course.description }}
+          </td>
+          <td class="text-center" style="border-left: 1px solid #ddd">
+            {{ course.instructor }}
+          </td>
+          <td class="text-center" style="border-left: 1px solid #ddd">
             <button
-              class="btn btn-outline-warning me-3"
-              (click)="openEditModal(user)"
+              class="btn btn-warning me-2 px-4"
+              (click)="showDialog(course)"
             >
               Edit
             </button>
+
             <button
               class="btn btn-outline-danger"
-              (click)="openEditModal(user)"
+              (click)="deleteCourse(course.id)"
             >
               Delete
             </button>
@@ -36,4 +48,45 @@
       </ng-template>
     </p-table>
   </div>
+
+  <!-- Edit Course Dialog -->
+  <p-dialog
+    header="Edit Course Information"
+    [modal]="true"
+    [(visible)]="visible"
+    [style]="{ width: '25rem' }"
+  >
+    <span class="p-text-secondary block mb-2">Edit Course Information</span>
+
+    <!-- Title input field bound to course.title -->
+    <div class="flex align-items-center gap-3 mb-2">
+      <input
+        pInputText
+        name="title"
+        [(ngModel)]="selectedCourse.title"
+        class="flex-auto form-control m"
+        placeholder="Title"
+      />
+    </div>
+
+    <!-- Description textarea bound to course.description -->
+    <div class="flex align-items-center gap-3 mb-2">
+      <textarea
+        placeholder="Description"
+        rows="5"
+        cols="32"
+        pInputTextarea
+        [(ngModel)]="selectedCourse.description"
+      ></textarea>
+    </div>
+
+    <div>
+      <button class="btn btn-outline-danger" (click)="visible = false">
+        Cancel
+      </button>
+      <button class="btn btn-success ms-3 w-25" (click)="saveCourse()">
+        Save
+      </button>
+    </div>
+  </p-dialog>
 </div>

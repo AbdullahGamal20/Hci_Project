@@ -4,24 +4,47 @@
 
   <div>
     <h3 class="table_title">Unapproved Users</h3>
-    <p-table [value]="users" [tableStyle]="{ width: '1000px' }">
+    <p-table [value]="unapprovedUsers" [tableStyle]="{ width: '1000px' }">
       <ng-template pTemplate="header">
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Role</th>
-          <th>Actions</th>
+        <tr style="border: 1px solid #ddd">
+          <th class="text-center" style="border-left: 1px solid #ddd">ID</th>
+          <th class="text-center" style="border-left: 1px solid #ddd">Name</th>
+          <th class="text-center" style="border-left: 1px solid #ddd">Email</th>
+          <th class="text-center" style="border-left: 1px solid #ddd">Role</th>
+          <th class="text-center" style="border-left: 1px solid #ddd">
+            Actions
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-user>
-        <tr>
-          <td>{{ user.id }}</td>
-          <td>{{ user.name }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.role }}</td>
-          <td>
-            <button class="btn btn-success">Approve</button>
+        <tr style="border: 1px solid #ddd">
+          <td class="text-center" style="border-left: 1px solid #ddd">
+            {{ user._id }}
+          </td>
+          <td class="text-center" style="border-left: 1px solid #ddd">
+            {{ user.username }}
+          </td>
+          <td class="text-center" style="border-left: 1px solid #ddd">
+            {{ user.email }}
+          </td>
+          <td class="text-center" style="border-left: 1px solid #ddd">
+            {{ user.role }}
+          </td>
+          <td class="text-center" style="border-left: 1px solid #ddd">
+            <button
+              class="btn btn-success"
+              style="width: 100px"
+              (click)="approveUser(user._id)"
+            >
+              Approve
+            </button>
+            <button
+              style="width: 100px"
+              class="btn btn-outline-danger ms-2"
+              (click)="deleteUser(user._id)"
+            >
+              Delete
+            </button>
           </td>
         </tr>
       </ng-template>
@@ -31,30 +54,37 @@
   <div>
     <h3 class="table_title">Approved Users</h3>
 
-    <p-table [value]="users" [tableStyle]="{ width: '1000px' }">
+    <p-table [value]="approvedUsers" [tableStyle]="{ width: '1000px' }">
       <ng-template pTemplate="header">
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Role</th>
-          <th>Actions</th>
+        <tr style="border: 1px solid #ddd">
+          <th class="text-center" style="border-left: 1px solid #ddd">ID</th>
+
+          <th class="text-center" style="border-left: 1px solid #ddd">Name</th>
+          <th class="text-center" style="border-left: 1px solid #ddd">Email</th>
+          <th class="text-center" style="border-left: 1px solid #ddd">Role</th>
+          <th class="text-center" style="border-left: 1px solid #ddd">
+            Actions
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-user>
-        <tr>
-          <td>{{ user.username }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.role }}</td>
-          <td class="">
+        <tr style="border: 1px solid #ddd">
+          <td class="text-center" style="border-left: 1px solid #ddd">
+            {{ user._id }}
+          </td>
+          <td class="text-center" style="border-left: 1px solid #ddd">
+            {{ user.username }}
+          </td>
+          <td class="text-center" style="border-left: 1px solid #ddd">
+            {{ user.email }}
+          </td>
+          <td class="text-center" style="border-left: 1px solid #ddd">
+            {{ user.role }}
+          </td>
+          <td style="border-left: 1px solid #ddd">
             <button
-              class="btn btn-outline-warning me-3"
-              (click)="openEditModal(user)"
-            >
-              Edit
-            </button>
-            <button
-              class="btn btn-outline-danger"
-              (click)="openEditModal(user)"
+              class="btn btn-outline-danger text-center w-100"
+              (click)="deleteUser(user._id)"
             >
               Delete
             </button>
