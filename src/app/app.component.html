@@ -1,9 +1,10 @@
-<div>
-  <!-- abdullah make this new components  -->
-  <!-- <app-monitoring-progress></app-monitoring-progress>
-  <app-access-course-materials></app-access-course-materials>
-  <app-user-management></app-user-management> -->
+<!-- If on login or register page, show the router-outlet only (no sidebar) -->
+<div *ngIf="isLoginOrRegisterPage">
+  <router-outlet></router-outlet>
+</div>
 
+<!-- If not on login or register page, show the sidebar and the router-outlet -->
+<div *ngIf="!isLoginOrRegisterPage">
   <app-sidebar></app-sidebar>
-  
+  <router-outlet></router-outlet>
 </div>

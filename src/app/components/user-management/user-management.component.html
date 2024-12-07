@@ -1,3 +1,4 @@
+<!-- user-management.component.html -->
 <div class="table-wrapper">
   <h2>User Management</h2>
 
@@ -33,7 +34,6 @@
     <p-table [value]="users" [tableStyle]="{ width: '1000px' }">
       <ng-template pTemplate="header">
         <tr>
-          <th>ID</th>
           <th>Name</th>
           <th>Email</th>
           <th>Role</th>
@@ -42,8 +42,7 @@
       </ng-template>
       <ng-template pTemplate="body" let-user>
         <tr>
-          <td>{{ user.id }}</td>
-          <td>{{ user.name }}</td>
+          <td>{{ user.username }}</td>
           <td>{{ user.email }}</td>
           <td>{{ user.role }}</td>
           <td class="">
