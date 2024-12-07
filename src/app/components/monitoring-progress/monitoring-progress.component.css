@@ -1,7 +1,10 @@
+.net {
+  width: 1000px;
+  margin: 0 auto;
+}
 .monitoring-progress-wrapper {
   width: 100%;
-  max-width: 600px;
-  margin: 20px auto;
+  margin: auto;
   padding: 15px;
   background: linear-gradient(145deg, #6a5acd, #7b68ee);
   border-radius: 12px;

@@ -68,7 +68,7 @@
   height: 65px;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: start;
   padding-inline: 3rem;
   border-bottom: 1px solid #eeeeee;
 
@@ -126,7 +126,10 @@
     padding-left: 0;
   }
 }
-
+.mainContainer {
+  width: 99% !important;
+  margin: 25px !important;
+}
 @media screen and (max-width: 576px) {
   .header {
     padding-right: 1rem;

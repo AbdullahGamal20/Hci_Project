@@ -1,6 +1,9 @@
+.net {
+  margin: 25px;
+  width: 1000px;
+}
 .course-materials-wrapper {
   width: 100%;
-  max-width: 700px;
   margin: 20px auto;
   padding: 15px;
   background: linear-gradient(145deg, #6a5acd, #7b68ee);

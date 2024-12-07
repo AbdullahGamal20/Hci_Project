@@ -1,35 +1,7 @@
 <div class="table-wrapper">
-  <h2>User Management</h2>
+  <h2>All courses</h2>
 
   <div>
-    <h3 class="table_title">Unapproved Users</h3>
-    <p-table [value]="users" [tableStyle]="{ width: '1000px' }">
-      <ng-template pTemplate="header">
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Role</th>
-          <th>Actions</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-user>
-        <tr>
-          <td>{{ user.id }}</td>
-          <td>{{ user.name }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.role }}</td>
-          <td>
-            <button class="btn btn-success">Approve</button>
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </div>
-
-  <div>
-    <h3 class="table_title">Approved Users</h3>
-
     <p-table [value]="users" [tableStyle]="{ width: '1000px' }">
       <ng-template pTemplate="header">
         <tr>

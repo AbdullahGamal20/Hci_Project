@@ -8,6 +8,9 @@ import { AccessCourseMaterialsComponent } from './components/access-course-mater
 import { UserManagementComponent } from './components/user-management/user-management.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MonitoringProgressComponent } from './components/monitoring-progress/monitoring-progress.component';
+import { CourseManagementComponent } from './components/course-management/course-management.component';
+import { TrackProgressComponent } from './components/track-progress/track-progress.component';
+import { SubmitAssignmentComponent } from './components/submit-assignment/submit-assignment.component';
 
 export const routes: Routes = [
   // Public routes
@@ -23,21 +26,19 @@ export const routes: Routes = [
   // Protected routes
   {
     path: 'dashboard',
-    // component: SidebarComponent,
+
     children: [
-      { path: 'course-enrollment', component: CourseEnrollmentComponent },
+      { path: 'submit-assignment', component: SubmitAssignmentComponent }, // not done
+      { path: 'access-materials', component: AccessCourseMaterialsComponent },
+      { path: 'track-progress', component: TrackProgressComponent }, // // not done
       { path: 'grade-assessment', component: GradeAssessmentComponent },
       { path: 'course-creation', component: CourseCreationComponent },
-      { path: 'access-materials', component: AccessCourseMaterialsComponent },
+      { path: 'monitor-progress', component: MonitoringProgressComponent },
       { path: 'user-management', component: UserManagementComponent },
-      { path: 'monitoring-progress', component: MonitoringProgressComponent },
-      { path: 'course-catalog', component: MonitoringProgressComponent }, // Added
-      { path: 'assignments', component: MonitoringProgressComponent }, // Added
-      { path: 'reports', component: MonitoringProgressComponent }, // Added
-      { path: 'analytics', component: MonitoringProgressComponent }, // Added
+      { path: 'course-management', component: CourseManagementComponent }, // not done
+      { path: 'course-enrollment', component: CourseEnrollmentComponent }, // not done
 
-      { path: '', component: MonitoringProgressComponent, pathMatch: 'full' },
-
+      // { path: '', component: LoginComponent, pathMatch: 'full' },
     ],
   },
   // Fallback route

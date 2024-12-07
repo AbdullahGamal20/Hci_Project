@@ -1,0 +1,28 @@
+<div class="net">
+  <div class="monitoring-progress-wrapper">
+    <h3 class="table-title">Track Your Progress</h3>
+
+    <!-- PrimeNG Table -->
+    <div class="tabel_holder">
+      <p-table [value]="tableData">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Student Name</th>
+            <th>Subject Name</th>
+            <th>Progress</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-row>
+          <tr>
+            <td>{{ row.studentName }}</td>
+            <td>{{ row.subjectName }}</td>
+
+            <td style="font-weight: bold; color: #5a4dcf">
+              {{ row.progress }}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

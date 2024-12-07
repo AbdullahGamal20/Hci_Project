@@ -1,7 +1,6 @@
 .form-wrapper {
-  width: 100%;
-  max-width: 600px;
-  margin: 50px auto;
+  width: 1000px;
+  margin: 25px;
   padding: 20px;
   background: linear-gradient(360deg, #291f6c, #4b2f8c, #6c4baa);
   color: #fff;
