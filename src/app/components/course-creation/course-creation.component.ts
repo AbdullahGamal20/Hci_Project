@@ -8,18 +8,25 @@ import {
 } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-course-creation',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, ToastModule],
   templateUrl: './course-creation.component.html',
   styleUrls: ['./course-creation.component.css'],
+  providers: [MessageService],
 })
 export class CourseCreationComponent {
   courseForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private messageService: MessageService
+  ) {
     this.courseForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
@@ -75,13 +82,21 @@ export class CourseCreationComponent {
         .post('http://localhost:3000/courses', courseData, { headers })
         .subscribe(
           (response) => {
-            console.log('Course created successfully', response);
+            this.messageService.add({
+              severity: 'success',
+              summary: 'User Approved',
+              detail: 'The user has been successfully approved.',
+            });
           },
           (error) => {
             console.error('Error creating course', error);
           }
         );
-      alert('Course created successfully!');
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Course Created ',
+        detail: 'The Course has been successfully Created.',
+      });
       this.courseForm.reset();
     } else {
       console.error('Form is invalid');

@@ -73,7 +73,6 @@ export class GradeAssessmentComponent implements OnInit {
             summary: 'Success',
             detail: 'Grade and feedback sent successful!',
           });
-          console.log('Grade and feedback sent successfully:', response);
         },
         (error) => {
           console.error('Error sending grade and feedback:', error);

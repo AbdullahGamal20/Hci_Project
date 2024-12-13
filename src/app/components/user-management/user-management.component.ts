@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../../services/admin/admin.service'; // Import the AdminService
 import { TableModule } from 'primeng/table';
 import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 interface UnapprovedUsersResponse {
   message: string;
@@ -10,7 +11,7 @@ interface UnapprovedUsersResponse {
 
 @Component({
   selector: 'app-user-management',
-  imports: [TableModule],
+  imports: [TableModule, ToastModule],
   standalone: true,
   templateUrl: './user-management.component.html',
   styleUrls: ['./user-management.component.css'],

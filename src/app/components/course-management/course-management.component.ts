@@ -7,7 +7,7 @@ import { TableModule } from 'primeng/table';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { FormsModule } from '@angular/forms';
 import { MessageService } from 'primeng/api';
-
+import { ToastModule } from 'primeng/toast';
 @Component({
   selector: 'app-course-management',
   standalone: true,
@@ -18,6 +18,7 @@ import { MessageService } from 'primeng/api';
     ButtonModule,
     InputTextareaModule,
     FormsModule,
+    ToastModule,
   ],
   templateUrl: './course-management.component.html',
   styleUrls: ['./course-management.component.css'],

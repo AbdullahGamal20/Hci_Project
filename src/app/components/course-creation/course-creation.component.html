@@ -1,6 +1,7 @@
 <div class="form-wrapper">
   <h3>Add Course</h3>
   <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+    <p-toast></p-toast>
     <div>
       <input formControlName="title" type="text" placeholder="Title" required />
     </div>
