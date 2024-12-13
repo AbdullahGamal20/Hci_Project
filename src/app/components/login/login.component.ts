@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
         (response: any) => {
           // Save response data to localStorage
           localStorage.setItem('userData', JSON.stringify(response));
+          localStorage.setItem('token', response.token);
 
           // Show success toast on login
           this.messageService.add({

@@ -27,5 +27,17 @@ export class AppComponent implements OnInit {
           event.urlAfterRedirects === '/' ||
           event.urlAfterRedirects === '/register';
       });
+
+    // If no token and user navigates to a restricted page, redirect to login
+    if (!localStorage.getItem('token') && !this.isLoginOrRegisterPage) {
+      this.router.navigate(['/']);
+    }
+  }
+
+  private checkAuthentication(): void {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      this.router.navigate(['/']);
+    }
   }
 }
