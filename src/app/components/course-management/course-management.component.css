@@ -10,8 +10,11 @@
     box-shadow: 2px 2px 0px 0px #eee;
   }
 }
-.table_title {
-  font-size: 18px;
+/* Title Styling */
+.table-title {
+  text-align: center;
+  font-size: 2em;
   color: #5a4dcf;
+  margin-bottom: 30px;
   font-weight: bold;
 }

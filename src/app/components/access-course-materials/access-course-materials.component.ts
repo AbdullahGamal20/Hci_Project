@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
+import { StudentService } from '../../services/student/student.service';
 
 @Component({
   selector: 'app-access-course-materials',
@@ -9,30 +10,63 @@ import { TableModule } from 'primeng/table';
   templateUrl: './access-course-materials.component.html',
   styleUrls: ['./access-course-materials.component.css'],
 })
-export class AccessCourseMaterialsComponent {
-  courseMaterials = [
-    {
-      courseName: 'Mathematics 101',
-      instructorName: 'Dr. John Doe',
-      fileUrl: '/test.txt',
-    },
-    {
-      courseName: 'Physics Basics',
-      instructorName: 'Prof. Jane Smith',
-      fileUrl: '/test.pdf',
-    },
-    {
-      courseName: 'Chemistry Advanced',
-      instructorName: 'Dr. Emily Johnson',
-      fileUrl: '/test.pdf',
-    },
-  ];
+export class AccessCourseMaterialsComponent implements OnInit {
+  courses: any[] = [];
 
-  downloadFile(fileUrl: string) {
-    const link = document.createElement('a');
-    // 7t link 2l downloadble file fe 2l params(file Url)
-    link.href = fileUrl;
-    link.download = fileUrl.split('/').pop() || 'lecture_file';
-    link.click();
+  constructor(private studentService: StudentService) {}
+
+  ngOnInit(): void {
+    this.loadCourseData();
   }
+
+  loadCourseData(): void {
+    this.studentService.fetchCourseMaterials().subscribe({
+      next: (data) => {
+        this.courses = data;
+      },
+      error: (err) => {
+        console.error('Error fetching courses:', err);
+      },
+    });
+  }
+
+  // transformData(apiData: any): any[] {
+  //   if (!apiData || !Array.isArray(apiData)) {
+  //     console.error('Invalid API response:', apiData);
+  //     return [];
+  //   }
+
+  //   const unifiedList: any[] = [];
+  //   apiData.forEach((course: any) => {
+  //     // Add materials
+  //     course.materials?.forEach((material: any) => {
+  //       unifiedList.push({
+  //         courseTitle: course.title,
+  //         courseDescription: course.description,
+  //         type: material.type,
+  //         content: material.content,
+  //         assignmentTitle: '',
+  //         assignmentDescription: '',
+  //         maxScore: '',
+  //         dueDate: '',
+  //       });
+  //     });
+
+  //     // Add assignments
+  //     course.assignments?.forEach((assignment: any) => {
+  //       unifiedList.push({
+  //         courseTitle: course.title,
+  //         courseDescription: course.description,
+  //         type: 'Assignment',
+  //         content: '',
+  //         assignmentTitle: assignment.title,
+  //         assignmentDescription: assignment.description,
+  //         maxScore: assignment.maxScore,
+  //         dueDate: assignment.dueDate,
+  //       });
+  //     });
+  //   });
+
+  //   return unifiedList;
+  // }
 }

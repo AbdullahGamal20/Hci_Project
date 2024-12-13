@@ -1,34 +1,36 @@
-<app-form-builder
-  [formName]="'Submit Your Assignment'"
-  [formFields]="[
-    {
-      name: 'courseName',
-      label: 'Course Name',
-      type: 'text',
-      placeholder: 'Enter course name'
-    },
-    {
-      name: 'creditScore',
-      label: 'Credit ',
-      type: 'text',
-      placeholder: 'Enter Credit Score'
-    },
-    {
-      name: 'courseDepartment',
-      label: 'Course Department',
-      type: 'select',
-      options: [
-        { value: 'is', label: 'Information Systems' },
-        { value: 'cs', label: 'Computer Science' },
-        { value: 'csys', label: 'Computer Systems' },
-        { value: 'sc', label: 'Scientific Computing' }
-      ]
-    },
-    {
-      name: 'courseDescription',
-      label: 'Course Description',
-      type: 'textarea',
-      placeholder: 'Your Course Description...'
-    }
-  ]"
-></app-form-builder>
+<div class="form-wrapper">
+  <h3>Submit Assignment</h3>
+  <form (submit)="onSubmit()">
+    <div class="form-field">
+      <!-- Select Dropdown -->
+      <label for="assignment">Select Assignment</label>
+      <select
+        class="form-input"
+        name="assignment"
+        [(ngModel)]="selectedAssignment"
+        required
+      >
+        <option value="" disabled selected>Select an assignment</option>
+        <option
+          *ngFor="let assignment of assignments"
+          [value]="assignment.assignmentId"
+        >
+          {{ assignment.assignmentName }}
+        </option>
+      </select>
+
+      <!-- File Upload Field -->
+      <label for="file" class="my-3">Upload Assignment (PDF)</label>
+      <input
+        type="file"
+        (change)="onFileSelected($event)"
+        class="form-input"
+        accept=".pdf"
+        required
+      />
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="form-button">Submit</button>
+  </form>
+</div>

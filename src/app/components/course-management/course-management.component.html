@@ -1,5 +1,5 @@
 <div class="table-wrapper">
-  <h2>All Courses</h2>
+  <h2 class="table-title">All Courses</h2>
 
   <div>
     <p-table [value]="courses" [tableStyle]="{ width: '1000px' }">
@@ -31,8 +31,9 @@
           </td>
           <td class="text-center" style="border-left: 1px solid #ddd">
             <button
-              class="btn btn-warning me-2 px-4"
+              class="btn me-2 px-4"
               (click)="showDialog(course)"
+              style="background: #6c4baa; color: #fff"
             >
               Edit
             </button>

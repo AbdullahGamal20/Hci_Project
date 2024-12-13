@@ -2,31 +2,60 @@
   <div class="course-materials-wrapper">
     <h3 class="table-title">Access to Course Materials</h3>
 
-    <p-table
-      [value]="courseMaterials"
-      [tableStyle]="{ width: '100%', borderRadius: '40px' }"
-    >
-      <ng-template pTemplate="header">
-        <tr>
-          <th>Course Name</th>
-          <th>Instructor Name</th>
-          <th>Download</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-material>
-        <tr>
-          <td>{{ material.courseName }}</td>
-          <td>{{ material.instructorName }}</td>
-          <td>
-            <button
-              class="download-button"
-              (click)="downloadFile(material.fileUrl)"
-            >
-              Download
-            </button>
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
+    <div *ngIf="courses && courses.length > 0; else noCourses" class="mainCard">
+      <div *ngFor="let course of courses" class="course-card">
+        <!-- Course Header -->
+        <div class="course-header">
+          <h4 class="course-title">{{ course.title }}</h4>
+          <p class="course-description">{{ course.description }}</p>
+          <p class="course-instructor">
+            <strong>Instructor:</strong> {{ course.instructor?.username }}
+          </p>
+        </div>
+
+        <!-- Materials Section -->
+        <div class="materials-section">
+          <h5>Materials</h5>
+          <div *ngIf="course.materials?.length > 0; else noMaterials">
+            <ul>
+              <li *ngFor="let material of course.materials">
+                <strong>{{ material.type }}:</strong>
+                <a [href]="material.content" target="_blank">{{
+                  material.content
+                }}</a>
+              </li>
+            </ul>
+          </div>
+          <ng-template #noMaterials>
+            <p>No materials to display.</p>
+          </ng-template>
+        </div>
+
+        <!-- Assignments Section -->
+        <div class="assignments-section">
+          <h5>Assignments</h5>
+          <div *ngIf="course.assignments?.length > 0; else noAssignments">
+            <ul>
+              <li *ngFor="let assignment of course.assignments">
+                <strong>{{ assignment.title }}</strong
+                >: {{ assignment.description }}
+                <br />
+                <strong>Max Score:</strong> {{ assignment.maxScore }}
+                <br />
+                <strong>Due Date:</strong>
+                {{ assignment.dueDate | date : "medium" }}
+              </li>
+            </ul>
+          </div>
+          <ng-template #noAssignments>
+            <p>No assignments to display.</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noCourses>
+      <p>No courses to display.</p>
+    </ng-template>
   </div>
 </div>

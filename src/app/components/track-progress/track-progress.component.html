@@ -2,23 +2,50 @@
   <div class="monitoring-progress-wrapper">
     <h3 class="table-title">Track Your Progress</h3>
 
+    <!-- Conditional Message -->
+    <div *ngIf="tableData.length === 0" class="no-grades-message">
+      <p>No grades available to display.</p>
+    </div>
+
     <!-- PrimeNG Table -->
-    <div class="tabel_holder">
+    <div class="tabel_holder" *ngIf="tableData.length > 0">
       <p-table [value]="tableData">
         <ng-template pTemplate="header">
-          <tr>
-            <th>Student Name</th>
-            <th>Subject Name</th>
-            <th>Progress</th>
+          <tr style="border: 1px solid #ddd">
+            <th class="text-center" style="border-left: 1px solid #ddd">
+              Course Name
+            </th>
+            <th class="text-center" style="border-left: 1px solid #ddd">
+              Assignment Name
+            </th>
+            <th class="text-center" style="border-left: 1px solid #ddd">
+              Feedback
+            </th>
+            <th class="text-center" style="border-left: 1px solid #ddd">
+              Score
+            </th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-row>
-          <tr>
-            <td>{{ row.studentName }}</td>
-            <td>{{ row.subjectName }}</td>
-
-            <td style="font-weight: bold; color: #5a4dcf">
-              {{ row.progress }}
+          <tr style="border: 1px solid #ddd">
+            <td class="text-center" style="border-left: 1px solid #ddd">
+              {{ row.courseName }}
+            </td>
+            <td class="text-center" style="border-left: 1px solid #ddd">
+              {{ row.assignment }}
+            </td>
+            <td class="text-center" style="border-left: 1px solid #ddd">
+              {{ row.feedback }}
+            </td>
+            <td
+              class="text-center"
+              style="
+                border-left: 1px solid #ddd;
+                font-weight: bold;
+                color: #5a4dcf;
+              "
+            >
+              {{ row.score }}
             </td>
           </tr>
         </ng-template>

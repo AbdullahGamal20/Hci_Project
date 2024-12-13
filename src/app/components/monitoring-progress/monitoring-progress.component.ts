@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
 import { ProgressBarModule } from 'primeng/progressbar';
-// For dynamic progressbar demo
 import { ToastModule } from 'primeng/toast';
+import { InstructorService } from '../../services/instructor/instructor.service';
+
 @Component({
   selector: 'app-monitoring-progress',
   standalone: true,
@@ -11,10 +12,23 @@ import { ToastModule } from 'primeng/toast';
   templateUrl: './monitoring-progress.component.html',
   styleUrls: ['./monitoring-progress.component.css'],
 })
-export class MonitoringProgressComponent {
-  tableData = [
-    { studentName: 'John Doe', subjectName: 'Mathematics', progress: '80%' },
-    { studentName: 'Doe', subjectName: 'Physics', progress: '65%' },
-    { studentName: 'jane ', subjectName: 'Chemistry', progress: '90%' },
-  ];
+export class MonitoringProgressComponent implements OnInit {
+  tableData: any[] = []; // Data to populate the table
+
+  constructor(private instructorService: InstructorService) {}
+
+  ngOnInit(): void {
+    this.fetchStudentsGrades();
+  }
+
+  fetchStudentsGrades(): void {
+    this.instructorService.getStudentsGrades().subscribe({
+      next: (data) => {
+        this.tableData = data || []; // Assuming data is an array
+      },
+      error: (err) => {
+        console.error('Error fetching student grades:', err);
+      },
+    });
+  }
 }

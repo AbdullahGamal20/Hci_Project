@@ -1,73 +1,125 @@
+/* General Styling */
 .net {
-  margin: 25px;
   width: 1000px;
 }
 .course-materials-wrapper {
-  width: 100%;
-  margin: 20px auto;
-  padding: 15px;
-  background: linear-gradient(145deg, #6a5acd, #7b68ee);
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  overflow: hidden;
 }
 
+.mainCard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  gap: 20px; /* Space between cards */
+  padding: 20px;
+}
+/* Title Styling */
 .table-title {
-  color: #ffffff;
   text-align: center;
-  margin-bottom: 15px;
-  font-size: 1.5rem;
+  font-size: 2em;
+  color: #5a4dcf;
+  margin-bottom: 30px;
   font-weight: bold;
 }
 
-.materials-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.materials-table thead {
-  background-color: #5a4dcf;
-  color: #fff;
-}
-
-.materials-table th,
-.materials-table td {
-  padding: 10px 15px;
-  text-align: left;
+/* Card Layout */
+.course-card {
   border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.materials-table tr:nth-child(even) {
-  background-color: #f4f4f4;
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.materials-table tr:nth-child(odd) {
-  background-color: #eaeaea;
+/* Course Header */
+.course-header {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
 }
 
-.materials-table tbody tr:hover {
-  background-color: #dcdcdc;
-}
-
-.materials-table th {
+.course-title {
+  font-size: 1.8em;
+  color: #333;
   font-weight: bold;
-  font-size: 1rem;
-  color: black;
 }
 
-.materials-table td {
-  font-size: 0.9rem;
+.course-description,
+.course-instructor {
+  font-size: 1em;
+  color: #666;
+  margin: 5px 0;
 }
 
-.download-button {
-  padding: 5px 10px;
-  background: linear-gradient(145deg, #6a5acd, #7b68ee);
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+/* Section Titles */
+.materials-section h5,
+.assignments-section h5 {
+  font-size: 1.5em;
+  color: #5a4dcf;
+  margin-bottom: 15px;
+  font-weight: bold;
+  border-left: 5px solid #5a4dcf;
+  padding-left: 10px;
 }
 
-.download-button:hover {
-  background-color: #45a049;
+/* List Styling */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: #333;
+}
+
+a {
+  color: #5a4dcf;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Fallback Messages */
+p {
+  font-size: 1em;
+  color: #999;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .course-materials-wrapper {
+    padding: 10px;
+  }
+
+  .course-title {
+    font-size: 1.5em;
+  }
+
+  .materials-section h5,
+  .assignments-section h5 {
+    font-size: 1.2em;
+  }
+
+  li {
+    font-size: 0.9em;
+  }
+
+  a {
+    font-size: 0.9em;
+  }
 }
