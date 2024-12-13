@@ -1,29 +1,71 @@
-<app-form-builder
-  [formName]="'Grade Assessment'"
-  [formFields]="[
-    {
-      name: 'studentName',
-      label: 'Student Name',
-      type: 'text',
-      placeholder: 'Enter Student Name'
-    },
-    {
-      name: 'id',
-      label: 'Student ID',
-      type: 'number',
-      placeholder: 'Enter Student ID'
-    },
-    {
-      name: 'department',
-      label: 'Student Department',
-      type: 'text',
-      placeholder: 'Enter Student Department'
-    },
-    {
-      name: 'grade',
-      label: 'Student Grade',
-      type: 'number',
-      placeholder: 'Enter Student Grade'
-    }
-  ]"
-></app-form-builder>
+<div class="table-wrapper">
+  <h2 class="table-title">Grade Assessments</h2>
+
+  <div class="d-flex justify-content-center">
+    <p-table [value]="submissions" [tableStyle]="{ width: '1000px' }">
+      <ng-template pTemplate="header">
+        <p-toast></p-toast>
+
+        <tr>
+          <th class="text-center">Course Title</th>
+          <th class="text-center">Student Name</th>
+          <th class="text-center">Assignment Name</th>
+          <th class="text-center">Assignment File</th>
+          <th class="text-center">Send Grade</th>
+          <th class="text-center">Feedback</th>
+          <th class="text-center">Send</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-submission>
+        <tr>
+          <td class="text-center">{{ submission.course_title }}</td>
+          <td class="text-center">{{ submission.student_Name }}</td>
+          <td class="text-center">{{ submission.assignment_Name }}</td>
+          <td>
+            <button
+              class="btn btn-secondary"
+              (click)="copyToClipboard(submission.submissionFile)"
+            >
+              Copy Link
+            </button>
+          </td>
+
+          <td class="text-center">
+            <input
+              type="number"
+              [(ngModel)]="submission.grade"
+              placeholder="Grade"
+              class="form-control"
+              style="width: 100px"
+            />
+          </td>
+
+          <td class="text-center">
+            <input
+              type="text"
+              [(ngModel)]="submission.feedback"
+              placeholder="Feedback"
+              class="form-control"
+            />
+          </td>
+
+          <td class="text-center">
+            <button
+              class="btn btn-success"
+              (click)="
+                sendGrade(
+                  submission.assignment_Id,
+                  submission.submission_Id,
+                  submission.grade,
+                  submission.feedback
+                )
+              "
+            >
+              Send
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

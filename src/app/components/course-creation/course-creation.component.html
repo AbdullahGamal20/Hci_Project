@@ -1,34 +1,95 @@
-<app-form-builder
-  [formName]="'Course Creation Form'"
-  [formFields]="[
-    {
-      name: 'courseName',
-      label: 'Course Name',
-      type: 'text',
-      placeholder: 'Enter course name'
-    },
-    {
-      name: 'creditScore',
-      label: 'Credit ',
-      type: 'text',
-      placeholder: 'Enter Credit Score'
-    },
-    {
-      name: 'courseDepartment',
-      label: 'Course Department',
-      type: 'select',
-      options: [
-        { value: 'is', label: 'Information Systems' },
-        { value: 'cs', label: 'Computer Science' },
-        { value: 'csys', label: 'Computer Systems' },
-        { value: 'sc', label: 'Scientific Computing' }
-      ]
-    },
-    {
-      name: 'courseDescription',
-      label: 'Course Description',
-      type: 'textarea',
-      placeholder: 'Your Course Description...'
-    }
-  ]"
-></app-form-builder>
+<div class="form-wrapper">
+  <h3>Add Course</h3>
+  <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+    <div>
+      <input formControlName="title" type="text" placeholder="Title" required />
+    </div>
+
+    <div>
+      <textarea
+        formControlName="description"
+        placeholder="Description"
+        required
+      ></textarea>
+    </div>
+
+    <div formArrayName="materials">
+      <h4>Materials</h4>
+      <div
+        *ngFor="let material of materials.controls; let i = index"
+        [formGroupName]="i"
+      >
+        <input
+          formControlName="type"
+          type="text"
+          placeholder="Type"
+          class="my-2"
+          required
+        />
+
+        <input
+          formControlName="content"
+          type="text"
+          placeholder="Content"
+          class="my-2"
+          required
+        />
+
+        <button type="button" class="my-2" (click)="removeMaterial(i)">
+          Remove
+        </button>
+      </div>
+      <button type="button" class="my-2" (click)="addMaterial()">
+        Add Material
+      </button>
+    </div>
+
+    <div formArrayName="assignments">
+      <h4>Assignments</h4>
+      <div
+        *ngFor="let assignment of assignments.controls; let i = index"
+        [formGroupName]="i"
+      >
+        <input
+          formControlName="title"
+          type="text"
+          placeholder="Title"
+          class="my-2"
+          required
+        />
+
+        <textarea
+          formControlName="description"
+          placeholder="Description"
+          class="my-2"
+          required
+        ></textarea>
+
+        <input
+          formControlName="dueDate"
+          type="date"
+          placeholder="Due Date"
+          class="my-2"
+          required
+        />
+
+        <input
+          formControlName="maxScore"
+          type="text"
+          placeholder="Max Score"
+          class="my-2"
+          required
+        />
+
+        <button type="button" class="my-2" (click)="removeAssignment(i)">
+          Remove
+        </button>
+      </div>
+      <button type="button" class="my-2" (click)="addAssignment()">
+        Add Assignment
+      </button>
+    </div>
+
+    <button type="submit">Create Course</button>
+  </form>
+</div>
