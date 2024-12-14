@@ -130,6 +130,50 @@
   width: 99% !important;
   margin: 25px !important;
 }
+
+:host ::ng-deep .p-confirm-dialog .p-dialog-header {
+  background-color: #003366; /* Change header background color */
+  color: white; /* Change header text color */
+  font-size: 1.2rem; /* Adjust header font size */
+  padding: 1rem; /* Add padding to the header */
+}
+
+:host ::ng-deep .p-confirm-dialog .p-dialog-content {
+  background-color: #f4f4f4; /* Change content background color */
+  color: #333; /* Change content text color */
+  padding: 1.5rem; /* Add padding to content */
+  font-size: 1rem; /* Adjust font size */
+}
+
+:host ::ng-deep .p-confirm-dialog .p-dialog-footer {
+  background-color: #eaeaea; /* Footer background */
+  padding: 1rem; /* Footer padding */
+}
+
+:host ::ng-deep .p-confirm-dialog .p-button {
+  margin: 0 0.5rem; /* Adjust button spacing */
+  border-radius: 5px; /* Make buttons rounded */
+}
+
+/* Change button colors */
+:host ::ng-deep .p-confirm-dialog .p-button-danger {
+  background-color: #ff4d4f; /* Danger button background */
+  border-color: #ff4d4f; /* Danger button border */
+}
+
+:host ::ng-deep .p-confirm-dialog .p-button-danger:hover {
+  background-color: #d9363e; /* Danger button hover background */
+}
+
+:host ::ng-deep .p-confirm-dialog .p-button-secondary {
+  background-color: #cccccc; /* Secondary button background */
+  border-color: #cccccc; /* Secondary button border */
+}
+
+:host ::ng-deep .p-confirm-dialog .p-button-secondary:hover {
+  background-color: #999999; /* Secondary button hover background */
+}
+
 @media screen and (max-width: 576px) {
   .header {
     padding-right: 1rem;

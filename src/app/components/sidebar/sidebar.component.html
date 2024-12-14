@@ -83,10 +83,13 @@
       </ul>
 
       <!-- Logout -->
-      <a (click)="onLogOut()">
-        <i class="pi pi-sign-out" style="font-size: 1rem"> </i>
+      <a (click)="confirmLogout()">
+        <i class="pi pi-sign-out" style="font-size: 1rem"></i>
         <span class="font-medium">Logout</span>
       </a>
+
+      <!-- Confirmation Dialog -->
+      <p-confirmDialog></p-confirmDialog>
     </div>
   </div>
   <div class="">

@@ -22,6 +22,7 @@ export const routes: Routes = [
   },
   {
     path: 'dashboard',
+
     children: [
       { path: 'submit-assignment', component: SubmitAssignmentComponent },
       { path: 'access-materials', component: AccessCourseMaterialsComponent },

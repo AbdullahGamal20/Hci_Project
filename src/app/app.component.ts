@@ -19,25 +19,19 @@ export class AppComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
+    // Listen for route changes and determine if the user is on a public page
     this.router.events
       .pipe(filter((event: any) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        // Check if the current URL is either /login or /register
-        this.isLoginOrRegisterPage =
-          event.urlAfterRedirects === '/' ||
-          event.urlAfterRedirects === '/register';
+        const publicPages = ['/', '/register'];
+        this.isLoginOrRegisterPage = publicPages.includes(
+          event.urlAfterRedirects
+        );
+
+        // If no token and not on a public page, redirect to the login page
+        if (!localStorage.getItem('token') && !this.isLoginOrRegisterPage) {
+          this.router.navigate(['/']);
+        }
       });
-
-    // If no token and user navigates to a restricted page, redirect to login
-    if (!localStorage.getItem('token') && !this.isLoginOrRegisterPage) {
-      this.router.navigate(['/']);
-    }
-  }
-
-  private checkAuthentication(): void {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      this.router.navigate(['/']);
-    }
   }
 }
